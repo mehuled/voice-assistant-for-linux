@@ -1,4 +1,4 @@
-import os
+import os, shutil
 
 directory = "%s%s" % (os.environ["HOME"],"/Desktop")
 
@@ -24,6 +24,8 @@ for f in files :
 			
 			os.makedirs(newExtensionDirectory)
 
-			print "Success!"
+		shutil.move(os.path.join(directory,f),"%s%s" % (extension.upper(),"s"))	
+
+		print "Success!"
 
 	#print f[::-1].split(".")[0][::-1]
