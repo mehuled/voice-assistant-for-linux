@@ -2,7 +2,7 @@ import os, shutil
 
 directory = "%s%s" % (os.environ["HOME"],"/Desktop")
 
-extensionDirectoryPath = "%s%s" %(os.environ["HOME"],"/Desktop/")
+extensionDirectoryPath = "%s%s" %(os.environ["HOME"],"/Documents/")
 
 
 files = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory,f))]
@@ -22,9 +22,14 @@ for f in files :
 			
 			newExtensionDirectory = "%s%s" %(extensionDirectoryPath,"%s%s" % (extension.upper(),"s"))
 			
-			os.makedirs(newExtensionDirectory)
+			try :
+				os.makedirs(newExtensionDirectory)
 	
-		shutil.move(os.path.join(directory,f),"%s%s" % (extension.upper(),"s"))	
+			except OSError :
+				
+				print "Directory already existed so I moved the file in the existing directory"
+
+		shutil.move(os.path.join(directory,f),"%s%s" %(extensionDirectoryPath,"%s%s" % (extension.upper(),"s")))	
 
 		print "Success!"
 
