@@ -23,7 +23,7 @@ for f in files :
 			newExtensionDirectory = "%s%s" %(extensionDirectoryPath,"%s%s" % (extension.upper(),"s"))
 			
 			os.makedirs(newExtensionDirectory)
-
+	
 		shutil.move(os.path.join(directory,f),"%s%s" % (extension.upper(),"s"))	
 
 		print "Success!"
