@@ -2,7 +2,7 @@ import java.io.*;
 import java.util.*;
 import java.lang.*;
 
-public class Main
+public class TenMaxSizeFiles
 {
     public static void main(String[] args) throws Exception
     {
