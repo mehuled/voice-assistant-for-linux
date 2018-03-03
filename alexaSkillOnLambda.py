@@ -124,7 +124,7 @@ def top_files_by_size(intent,session) :
     
     if success :    
     	should_end_session = True
-    	speech_output = "I have listed the top 10 files on your system in a file topfiles.txt on desktop! Please have a look."
+    	speech_output = "I have listed the top 10 files on your system in a file top files dot html on desktop! Please have a look."
     
     else 
     	should_end_session = False
