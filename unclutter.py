@@ -9,7 +9,7 @@ if len(sys.argv) == 1 :
 elif len(sys.argv) == 2 :
 	
 	
-	if (sys.argv[1]).lower() in ['documents','music','videos','downloads','pictures'] :
+	if (sys.argv[1]).lower() in ['documents','music','downloads','pictures'] :
 		directoryToUnclutter = "/%s" %((sys.argv[1]).lower().title())	
 	
 	else :
