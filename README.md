@@ -5,7 +5,7 @@
 #### Lambda Function ARN : arn:aws:lambda:us-east-1:372942179917:function:mehulsGirlfriendOnAlexa
 
 ## Prerequisites
-* All the scipts that I have create were tested successfully on OSX & other linux based OSes with Python 2.7.10 installed on the system
+* All the scipts that I have create were tested successfully on macOS & other Linux based OSes with Python 2.7.10 installed on the system
 
 ## Features
 * Unclutter any directory from *desktop*, *documents*, *downloads*, *music*, *videos*, *pictures*  by moving files based on thier extensions in different folders of names similar to extensions for example all pdf files are moved in a folder *PDFs* in */Documents*. Just provide the name of the directory to be uncluttered as a command line argument to the script `unclutter.py` .
