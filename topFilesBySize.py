@@ -20,18 +20,26 @@ def getsize(bytes) :
 
 #------------------ To deal with command line arguments provided---------------------------------
 
+reverse = True
+
 if len(sys.argv) == 1 :
 	count = 10	#Default : Show ten entries.			
 	sortby = 1   #Default : Sort by size only
-
+	 
 
 elif len(sys.argv) == 2 :
 	
 	
 	if sys.argv[1] == 'lat' :
+		
 		sortby = 2
 		count = 10 
-	
+		
+	elif sys.argv[1] == 'eat' :
+		
+		sortby = 2
+		count = 10 
+		reverse = False
 	else :
 		try :
 			count = int(sys.argv[1])
@@ -48,6 +56,10 @@ elif len(sys.argv) == 3 :
 		if sys.argv[2] == 'lat' :
 			
 			sortby = 2 
+		elif sys.argv[2] == 'eat' :
+		
+			sortby = 2 
+			reverse = False
 		
 		else :
 			print "Invalid argument for sort by parameter. Sorting by size only!"
@@ -105,7 +117,7 @@ for destinationFolder in directoriesToBeChecked :
 
 #---------------- To sort the file info on a parameter, defaults to size or last access time if lat is provided as command line argument
 
-fileinfo.sort(key=lambda x : x[sortby],reverse=True)
+fileinfo.sort(key=lambda x : x[sortby],reverse=reverse)
 
 html_body = ''
 
@@ -144,10 +156,13 @@ tr:nth-child(even) {
 <body>
 
 <table>
-<col width="30">
-<col width="200">
-  <col width="140">
-  <col width="140">
+ <colgroup>
+       <col span="1" style="width: 5%;">
+       <col span="1" style="width: 50%;">
+       <col span="1" style="width: 20%;">
+       <col span="1" style="width: 25%;">
+       
+    </colgroup>
   <tr>
     <th>S. No</th>
     <th>Filename</th>
