@@ -1,6 +1,30 @@
 import os, shutil
+import sys
 
-directory = "%s%s" % (os.environ["HOME"],"/Desktop")
+
+
+if len(sys.argv) == 1 :
+	directoryToUnclutter = "/Desktop"
+
+elif len(sys.argv) == 2 :
+	
+	
+	if (sys.argv[1]).lower() in ['documents','music','videos','downloads','pictures'] :
+		directoryToUnclutter = "/%s" %((sys.argv[1]).lower().title())	
+	
+	else :
+		print "Invalid Argument. Running in default mode."
+		directoryToUnclutter = "/Desktop"
+
+
+
+else :
+	print "Too many arguments provided. Running in default mode!"
+	directoryToUnclutter = "/Desktop"
+
+
+
+directory = "%s%s" % (os.environ["HOME"],directoryToUnclutter)
 
 extensionDirectoryPath = "%s%s" %(os.environ["HOME"],"/Documents/")
 
@@ -28,9 +52,16 @@ for f in files :
 			except OSError :
 				
 				print "Directory already existed so I moved the file in the existing directory"
+		
+		
+		try :
+			shutil.move(os.path.join(directory,f),"%s%s" %(extensionDirectoryPath,"%s%s" % (extension.upper(),"s")))	
 
-		shutil.move(os.path.join(directory,f),"%s%s" %(extensionDirectoryPath,"%s%s" % (extension.upper(),"s")))	
 
+		except shutil.Error :
+		
+			print " %s , file with same name already present in the directory so not moving." %(f)
+		
 		print "Success!"
 
 	#print f[::-1].split(".")[0][::-1]
