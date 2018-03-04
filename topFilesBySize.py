@@ -5,15 +5,78 @@ import time
 from time import strftime
 
 
+#---------------- Function to return the size in appropriate units i.e Bytes, KB or MB.----------------
+
+def getsize(bytes) :                            
+	if bytes < 1024 :
+		return "%s %s" % (str(bytes),"Bytes")
+
+	elif bytes>=1024 and bytes <1024*1024 :
+		return "%s %s" % (str(bytes/1024),"KB")
+
+	else :
+		return "%s %s" % (str(bytes/(1024*1024)),"MB")
+
+
+#------------------ To deal with command line arguments provided---------------------------------
+
 if len(sys.argv) == 1 :
-	count = 10
-else :
+	count = 10	#Default : Show ten entries.			
+	sortby = 1   #Default : Sort by size only
+
+
+elif len(sys.argv) == 2 :
+	
+	
+	if sys.argv[1] == 'lat' :
+		sortby = 2
+		count = 10 
+	
+	else :
+		try :
+			count = int(sys.argv[1])
+			sortby = 1 
+		except :
+			print "Invalid Argument"
+			sys.exit(1)
+
+elif len(sys.argv) == 3 :
+
 	try :
 		count = int(sys.argv[1])
+		
+		if sys.argv[2] == 'lat' :
+			
+			sortby = 2 
+		
+		else :
+			print "Invalid argument for sort by parameter. Sorting by size only!"
+			sortby = 1 
+		
+		
 	except :
-		print "Invalid Argument"
+		print "Invalid Argument for number of files to be shown. Exiting!"
 		sys.exit(1)
  
+
+
+else :
+	print "Too many arguments provided. Running in default mode!"
+	count = 10 
+	sortby = 1 
+
+
+#-------------------- Code to recursively access all the files in listed directories and append their info in a list ----------------
+
+
+if sortby == 1 :
+	time_format = "%b %d, %Y" 	#when sorting by size only date of last access is needed
+
+else :
+	time_format = "%H:%M | %b %d, %Y" 	#when sorting by last access time, Hour minute and date are shown
+
+
+
 directory = os.environ["HOME"]
 
 directoriesToBeChecked = ['/Desktop','/Documents','/Downloads','/Music','/Pictures','/Videos']
@@ -27,22 +90,28 @@ for destinationFolder in directoriesToBeChecked :
 		for filename in filenames :
 	
 			try :
-				fileinfo.append((os.path.join(root,filename),os.stat(os.path.join(root,filename)).st_size/(1024*1024),strftime("%b %d, %Y", time.localtime(os.stat(os.path.join(root,filename)).st_atime))))
+				fileinfo.append((os.path.join(root,filename),os.stat(os.path.join(root,filename)).st_size,os.stat(os.path.join(root,filename)).st_atime,strftime(time_format, time.localtime(os.stat(os.path.join(root,filename)).st_atime))))
+
+
+		
+		
 		
 			except OSError :
 		
 				print "Found file which is non existent, so moving on!"
 		
-			#print os.path.join(root,filename)
 		
-			#print os.stat(os.path.join(root,filename)).st_size
 		
-fileinfo.sort(key=lambda x : x[1],reverse=True)
+
+#---------------- To sort the file info on a parameter, defaults to size or last access time if lat is provided as command line argument
+
+fileinfo.sort(key=lambda x : x[sortby],reverse=True)
 
 html_body = ''
 
+
 for i in xrange(count) :
-	html_body =  "%s <tr> <td> %s </td> <td> %s </td> <td> %s MB </td> <td> %s </td> </tr>" %(html_body,(i+1),fileinfo[i][0],fileinfo[i][1],fileinfo[i][2])  	
+	html_body =  "%s <tr> <td> %s </td> <td> %s </td> <td> %s </td> <td> %s </td> </tr>" %(html_body,(i+1),fileinfo[i][0],getsize(fileinfo[i][1]),fileinfo[i][3])  	
 
 
 
@@ -99,8 +168,11 @@ Html_file= open("%s%s%s" % (os.environ['HOME'],"/Desktop","/topfiles.html"),"w")
 Html_file.write("%s %s %s" % (html_start,html_body,html_end))
 Html_file.close()
 
-webbrowser.open("%s%s%s" % (os.environ['HOME'],"/Desktop","/topfiles.html")) #This is used to automatically open the html file in browser
+#This is used to automatically open the html file in browser
 
+
+
+webbrowser.open("%s%s%s" % (os.environ['HOME'],"/Desktop","/topfiles.html")) 
 print "Success"
 
 
