@@ -13,13 +13,13 @@ elif len(sys.argv) == 2 :
 		directoryToUnclutter = "/%s" %((sys.argv[1]).lower().title())	
 	
 	else :
-		print "Invalid Argument. Running in default mode."
+		print ("Invalid Argument. Running in default mode.")
 		directoryToUnclutter = "/Desktop"
 
 
 
 else :
-	print "Too many arguments provided. Running in default mode!"
+	print ("Too many arguments provided. Running in default mode!")
 	directoryToUnclutter = "/Desktop"
 
 
@@ -51,7 +51,7 @@ for f in files :
 	
 			except OSError :
 				
-				print "Directory already existed so I moved the file in the existing directory"
+				print ("Directory already existed so I moved the file in the existing directory")
 		
 		
 		try :
@@ -60,8 +60,8 @@ for f in files :
 
 		except shutil.Error :
 		
-			print " %s , file with same name already present in the directory so not moving." %(f)
+			print (" %s , file with same name already present in the directory so not moving." %(f))
 		
-		print "Success!"
+		print ("Success!")
 
 	#print f[::-1].split(".")[0][::-1]
