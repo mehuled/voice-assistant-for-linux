@@ -23,7 +23,8 @@ To list top 10 files on your system by size, run the script
 This script recursively goes through various directories under */home* like *Documents*, *Videos*, *Pictures*, *Downloads*, *Music*, *Videos*, *Movies* and lists the top files by size among all the files.
 
 **NOTE** - Only common directories like listed above are recursively searched to save unneccessarily going through system files that makes the script take a little more time. 
-To scan all directories pass the command line argument 'all' to the script 'topFiles.py' i.e run `python topFiles all`. 
+To scan all directories pass the command line argument 'all' to the script 'topFiles.py' i.e run `python topFiles all`. (This might take more time than usual)
+
 To list n number of files on the system by size, provide n as a command line argument to the script *topFiles.py* for e.g 
 *To see top 50 files by size on your system run*
 ``` python topFiles.py 50 ```
@@ -40,6 +41,8 @@ Often we'd like to free up some space on our system but are really unsure of wha
 ``` python topFiles.py eat ```
 By default it will return 10 of the most earliest accessed files, to view n number of earliest accessed files provide n as a command line argument for e.g. *To view 50 most earliest accessed files on your system Run*
 ``` python topFiles.py 50 eat ```
+
+*Please note that the 'recomended files to delete' feature accesses the last access time of the files by using os.stat(path).st_atime attribute, In some cases files which have been imported from external source like downloaded from the internet might give last access time as something older than the system. Since this is a minimum viable product, I have not taken that into consideration in the code, I shall make commits to modify this feature in future* 
 
 * **Voice controlled by Alexa.**
 
