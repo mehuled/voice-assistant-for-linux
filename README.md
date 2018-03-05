@@ -50,3 +50,9 @@ Below infrastructure map shows how Alexa skill to execute commands using your ec
 **NOTE** : Since the Alexa skill is not published on the Alexa skill store, any other echo device might not understand the *Unclutter my desktop* or *List top files command*. However I have provided the code for the AWS Lambda function that serves as the endpoint for this skill in the file `alexaSkillOnLambda.py`.It will give an idea of how the skill actually works.
 
 **Lambda Function ARN : arn:aws:lambda:us-east-1:372942179917:function:mehulsGirlfriendOnAlexa**
+
+
+> I really believe in the accessiblity that voice based assistants like Alexa, Google Assistant etc provide. I personally think a lot of cool things are waiting to be built using these. 
+
+***
+
