@@ -12,10 +12,10 @@ def getsize(bytes) :
 		return "%s %s" % (str(bytes),"Bytes")
 
 	elif bytes>=1024 and bytes <1024*1024 :
-		return "%s %s" % (str(bytes/1024),"KB")
+		return "%s %s" % (str(bytes//1024),"KB")
 
 	else :
-		return "%s %s" % (str(bytes/(1024*1024)),"MB")
+		return "%s %s" % (str(bytes//(1024*1024)),"MB")
 
 
 #------------------ To deal with command line arguments provided---------------------------------
@@ -45,7 +45,7 @@ elif len(sys.argv) == 2 :
 			count = int(sys.argv[1])
 			sortby = 1 
 		except :
-			print "Invalid Argument"
+			print ("Invalid Argument")
 			sys.exit(1)
 
 elif len(sys.argv) == 3 :
@@ -62,18 +62,18 @@ elif len(sys.argv) == 3 :
 			reverse = False
 		
 		else :
-			print "Invalid argument for sort by parameter. Sorting by size only!"
+			print ("Invalid argument for sort by parameter. Sorting by size only!")
 			sortby = 1 
 		
 		
 	except :
-		print "Invalid Argument for number of files to be shown. Exiting!"
+		print ("Invalid Argument for number of files to be shown. Exiting!")
 		sys.exit(1)
  
 
 
 else :
-	print "Too many arguments provided. Running in default mode!"
+	print ("Too many arguments provided. Running in default mode!")
 	count = 10 
 	sortby = 1 
 
@@ -110,7 +110,7 @@ for destinationFolder in directoriesToBeChecked :
 		
 			except OSError :
 		
-				print "Found file which is non existent, so moving on!"
+				print ("Found file which is non existent, so moving on!")
 		
 		
 		
@@ -122,7 +122,7 @@ fileinfo.sort(key=lambda x : x[sortby],reverse=reverse)
 html_body = ''
 
 
-for i in xrange(count) :
+for i in range(count) :
 	html_body =  "%s <tr> <td> %s </td> <td> %s </td> <td> %s </td> <td> %s </td> </tr>" %(html_body,(i+1),fileinfo[i][0],getsize(fileinfo[i][1]),fileinfo[i][3])  	
 
 
@@ -188,7 +188,7 @@ Html_file.close()
 
 
 webbrowser.open("%s%s%s" % (os.environ['HOME'],"/Desktop","/topfiles.html")) 
-print "Success"
+print ("Success")
 
 
 
