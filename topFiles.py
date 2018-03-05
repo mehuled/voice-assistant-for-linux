@@ -91,7 +91,7 @@ else :
 
 directory = os.environ["HOME"]
 
-directoriesToBeChecked = ['/Desktop','/Documents','/Downloads','/Music','/Pictures']
+directoriesToBeChecked = ['/Desktop','/Documents','/Downloads','/Music','/Pictures','Movies','Videos']
 
 fileinfo = []
 
