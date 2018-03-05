@@ -42,6 +42,8 @@ By default it will return 10 of the most earliest accessed files, to view n numb
 If too lazy to run any script on the system, I created an Alexa skill to setup a remote connection to any system using [Paramiko](http://www.paramiko.org/) a Python implementation of the SSHv2 protocol by running a AWS Lambda function and then execute commands on the remote system by giving instructions to your echo device like, 'Alexa, Unclutter my desktop', 'Alexa, list top files by size'. 
 Please find the attached video for demo. 
 
+<a href="http://www.youtube.com/watch?feature=player_embedded&v=TfxH1XS1Ygs" target="_blank"><img src="http://img.youtube.com/vi/TfxH1XS1Ygs/0.jpg" 
+alt="Demo of how my alexa skill works." width="240" height="180" border="10" /></a>
 
 Below infrastructure map shows how Alexa skill to execute commands using your echo device works.
 
