@@ -21,6 +21,7 @@ def getsize(bytes) :
 #------------------ To deal with command line arguments provided---------------------------------
 
 reverse = True
+lookAll = False 
 
 if len(sys.argv) == 1 :
 	count = 10	#Default : Show ten entries.			
@@ -40,6 +41,15 @@ elif len(sys.argv) == 2 :
 		sortby = 2
 		count = 10 
 		reverse = False
+		
+	elif sys.argv[1] == 'all' :
+
+
+		sortby = 1
+		count = 10 
+		lookAll = True
+
+
 	else :
 		try :
 			count = int(sys.argv[1])
@@ -91,7 +101,13 @@ else :
 
 directory = os.environ["HOME"]
 
-directoriesToBeChecked = ['/Desktop','/Documents','/Downloads','/Music','/Pictures','/Movies','/Videos']
+
+if lookAll :
+	
+	directoriesToBeChecked = [""]
+
+else :
+	directoriesToBeChecked = ['/Desktop','/Documents','/Downloads','/Music','/Pictures','/Movies','/Videos']
 
 fileinfo = []
 
@@ -104,7 +120,7 @@ for destinationFolder in directoriesToBeChecked :
 			try :
 				fileinfo.append((os.path.join(root,filename),os.stat(os.path.join(root,filename)).st_size,os.stat(os.path.join(root,filename)).st_atime,strftime(time_format, time.localtime(os.stat(os.path.join(root,filename)).st_atime))))
 
-
+				#print os.path.join(root,filename)
 		
 		
 		
