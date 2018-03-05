@@ -21,9 +21,10 @@ To unclutter any other directory from *Downloads*, *Documents*, *Music*, *Pictur
 To list top 10 files on your system by size, run the script
 ``` python topFiles.py ```
 This script recursively goes through various directories under */home* like *Documents*, *Videos*, *Pictures*, *Downloads*, *Music*, *Videos*, *Movies* and lists the top files by size among all the files.
+Output is present in the file *topfiles.html* on the Desktop.
 
 **NOTE** - Only common directories like listed above are recursively searched to save unneccessarily going through system files that makes the script take a little more time. 
-To scan all directories pass the command line argument 'all' to the script 'topFiles.py' i.e run `python topFiles all`. (This might take more time than usual)
+To scan all directories pass the command line argument 'all' to the script 'topFiles.py' i.e run `python topFiles.py all`. (This might take more time than usual)
 
 To list n number of files on the system by size, provide n as a command line argument to the script *topFiles.py* for e.g 
 *To see top 50 files by size on your system run*
