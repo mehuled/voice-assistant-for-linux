@@ -10,10 +10,10 @@ Please find the problem statement [here](https://drive.google.com/file/d/1azvXBM
 
 It unclutters the selected directory by moving all the files on the directory with an extension e.g .jpg, .pdf etc. in a new folder named after the extension in the *Documents* folder. for e.g
 
-*If user has 3 pdf, 10 mp3 and 4 jpg files on the desktop then 3 folders namely *PDFs*, *MP3s*, *JPGs* will be created in the documents folder and all the files will be moved in their respective folders.*
+*If user has 3 pdf, 10 mp3 and 4 jpg files on the desktop then 3 folders namely *PDFs*, *MP3s*, *JPGs* will be created in the *Documents* folder and all the files will be moved in their respective folders.*
 To unclutter desktop on your system run the script
 ``` python unclutter.py ```
-To unclutter any other directory from *Downloads*, *Documents*, *Music*, *Pictures* provide the directory name as a command line argument e.g. To unclutter downloads run
+To unclutter any other directory from *Downloads*, *Documents*, *Music*, *Pictures*, *Videos*, *Movies* provide the directory name as a command line argument e.g. To unclutter *Downloads* run
 ```  python unclutter.py downloads ``` .
 
 * **List top n files on the system based on size.** 
