@@ -98,6 +98,8 @@ else :
 	time_format = "%H:%M | %b %d, %Y" 	#when sorting by last access time, Hour minute and date are shown
 
 
+print ("Please be patient, the script might take upto 2 minutes depending on the other processes running on the system.")
+
 
 directory = os.environ["HOME"]
 
@@ -126,7 +128,7 @@ for destinationFolder in directoriesToBeChecked :
 		
 			except OSError :
 		
-				print ("Found file which is non existent, so moving on!")
+				print ("Found file which is non existent on the disc, so moving on!")
 		
 		
 		
@@ -203,8 +205,11 @@ Html_file.close()
 
 
 
-webbrowser.open("%s%s%s" % (os.environ['HOME'],"/Desktop","/topfiles.html")) 
-print ("Success")
+#webbrowser.open("%s%s%s" % (os.environ['HOME'],"/Desktop","/topfiles.html"))    
+
+
+
+print ("Success! Please open 'topfiles.html' on your desktop which contains the output.")
 
 
 

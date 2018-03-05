@@ -1,7 +1,7 @@
 import os, shutil
 import sys
 
-
+#------------------- This is to handle the command line arguments provided----------------------
 
 if len(sys.argv) == 1 :
 	directoryToUnclutter = "/Desktop"
@@ -26,17 +26,19 @@ else :
 
 directory = "%s%s" % (os.environ["HOME"],directoryToUnclutter)
 
-extensionDirectoryPath = "%s%s" %(os.environ["HOME"],"/Documents/")
+#--------------This is to set the path of the directory where new folders based on extensions will be created------------------
 
+extensionDirectoryPath = "%s%s" %(os.environ["HOME"],"/Documents/")   
 
 files = [f for f in os.listdir(directory) if os.path.isfile(os.path.join(directory,f))]
 
 extensionList = [] 
 
+#--------------- This is to look for all the files in the directory to be uncluttered-----------------
 
 for f in files :
 	
-	if "." in f :
+	if "." in f :                  #To move only those files which have a extension
 		
 		extension = f[::-1].split(".")[0][::-1]
 
@@ -51,7 +53,7 @@ for f in files :
 	
 			except OSError :
 				
-				print ("Directory already existed so I moved the file in the existing directory")
+				print ("Directory already existed so moved the file in the existing directory")
 		
 		
 		try :
@@ -62,6 +64,6 @@ for f in files :
 		
 			print (" %s , file with same name already present in the directory so not moving." %(f))
 		
-		print ("Success!")
+		print ("Successfully Uncluttered!")
 
-	#print f[::-1].split(".")[0][::-1]
+	
