@@ -72,7 +72,7 @@ for f in files :
 
 
 
-print ("Successfully Uncluttered! %s/%s files moved. ")%(movedFiles,totalFiles)		
+print (("Successfully Uncluttered! %s/%s files moved. ")%(movedFiles,totalFiles))		
 		
 
 	
