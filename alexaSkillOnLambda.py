@@ -13,7 +13,7 @@ def run_command_on_remote(command) :
 
 	
 	username = 'mehul'
-	hostname = 'mehuled.pagekite.py'
+	hostname = 'mehuled.pagekite.me'
 	password = '##########' 	 '''The password is saved on AWS Lambda as an Environment Variable.'''
 
 
