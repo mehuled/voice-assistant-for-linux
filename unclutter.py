@@ -36,9 +36,14 @@ extensionList = []
 
 #--------------- This is to look for all the files in the directory to be uncluttered-----------------
 
+totalFiles = 0 
+movedFiles = 0 
+
 for f in files :
 	
 	if "." in f :                  #To move only those files which have a extension
+		
+		totalFiles +=1
 		
 		extension = f[::-1].split(".")[0][::-1]
 
@@ -53,17 +58,21 @@ for f in files :
 	
 			except OSError :
 				
-				print ("Directory already existed so moved the file in the existing directory")
-		
-		
+				
+				pass		
+				#print ("Directory already existed so moved the file in the existing directory")
 		try :
 			shutil.move(os.path.join(directory,f),"%s%s" %(extensionDirectoryPath,"%s%s" % (extension.upper(),"s")))	
-
+			
+			movedFiles+=1			
 
 		except shutil.Error :
 		
 			print (" %s , file with same name already present in the directory so not moving." %(f))
+
+
+
+print ("Successfully Uncluttered! %s/%s files moved. ")%(movedFiles,totalFiles)		
 		
-		print ("Successfully Uncluttered!")
 
 	
