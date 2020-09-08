@@ -1,5 +1,4 @@
-# Remote procedure execution for Linux
-
+# Voice based assistant for Linux
 Please find the problem statement [here](https://drive.google.com/file/d/1azvXBMhBmhiFRDDTR3cDegJUNTxvg3ak/view).
 ## Prerequisites
 * All the scipts that I have created were tested successfully on **macOS** & other **Linux** based OSes with **Python 2.7.10** or **Python 3** installed on the system.
