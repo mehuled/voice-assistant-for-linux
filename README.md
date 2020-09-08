@@ -1,6 +1,5 @@
-# unclutter-desktop-alexa-innovaccer
+# Remote procedure execution for Linux
 
-## This is a project for Hacker Camp 018 by Innovaccer - Infrastructure Engineering.
 Please find the problem statement [here](https://drive.google.com/file/d/1azvXBMhBmhiFRDDTR3cDegJUNTxvg3ak/view).
 ## Prerequisites
 * All the scipts that I have created were tested successfully on **macOS** & other **Linux** based OSes with **Python 2.7.10** or **Python 3** installed on the system.
